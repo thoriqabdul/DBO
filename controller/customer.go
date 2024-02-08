@@ -33,7 +33,7 @@ func (con *Controller) DetailCustomer(c *gin.Context) {
 	res, err := con.Model.DetailCustomer(int(id))
 	if err != nil {
 		// log.Fatal(err)
-		WriteError(c, "Failed", http.StatusBadRequest, err)
+		WriteError(c, "Failed", http.StatusNotFound, err)
 		return
 	}
 	WriteSuccess(c, res, "Successfuly", ResponseMeta{HTTPStatus: http.StatusOK})
